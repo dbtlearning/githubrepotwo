@@ -1,16 +1,16 @@
 with stg_customers as (
     select
         id as customer_id, first_name, last_name
-    from lab_one.customers
+    from lab_two.customers
 ),
 stg_orders as (
     select
         id as order_id,user_id as customer_id, order_date, status
-    from lab_one.orders
+    from lab_two.orders
 ),
 stg_payments as (
     select id as payment_id, order_id, payment_method, amount / 100 as amount
-    from lab_one.Payments
+    from lab_two.Payments
 ),
 customer_orders as (
     select customer_id, min(order_date) as first_order,
